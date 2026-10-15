@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prodaj Biznis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: oglasna tabla. Hero = odštampan oglas "PRODAJE SE" sa listićima za otcepljivanje; ostatak mirno, levo poravnato. */
+:root{
+  --paper:#f5f7f6; --card:#ffffff; --ink:#0f1f1a; --muted:#56655f; --line:#dbe3df;
+  --sign:#0f6b4f; --sign-ink:#ffffff; --note:#d7efe4; --note-ink:#0f3d2e;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Onest","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0c1412; --card:#13201c; --ink:#e9f1ee; --muted:#94a8a0; --line:#24352f;
+  --sign:#3fbf8f; --sign-ink:#06140f; --note:#1f3d33; --note-ink:#cdeee0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c1412; --card:#13201c; --ink:#e9f1ee; --muted:#94a8a0; --line:#24352f;
+  --sign:#3fbf8f; --sign-ink:#06140f; --note:#1f3d33; --note-ink:#cdeee0; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sign);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:750;font-stretch:95%;letter-spacing:-.02em;line-height:1.08}
+p{margin:0}
+.lead{color:var(--muted);max-width:56ch}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.ph{background:var(--note);color:var(--note-ink);padding:0 .3em;border-radius:3px;font-family:var(--mono);font-size:.85em}
+
+/* nav */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:900;font-stretch:75%;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--sign)}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 1rem var(--body);padding:13px 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--sign);border-color:var(--sign);color:var(--sign-ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{border-color:var(--sign);color:var(--sign);background:transparent}
+.btn.sm{padding:9px 16px;font-size:.9rem}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding-block:64px 80px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);font-weight:800;font-stretch:92%;letter-spacing:-.025em;line-height:1.04}
+.hero h1 em{font-style:normal;color:var(--sign)}
+.hero .lead{font-size:1.15rem;margin-top:22px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .note{margin-top:22px;font-size:.92rem;color:var(--muted)}
+
+.flyer{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 50px -28px rgba(8,40,30,.45);
+  transform:rotate(1.2deg);max-width:420px;justify-self:center;width:100%;position:relative}
+.flyer .head{background:var(--sign);color:var(--sign-ink);font-family:var(--display);font-weight:800;font-stretch:90%;font-size:clamp(2rem,4.6vw,2.7rem);text-align:center;line-height:1;padding:22px 10px 18px;letter-spacing:.04em}
+.flyer .body{padding:20px 22px 18px;display:grid;gap:12px}
+.flyer .tag{justify-self:start;color:var(--muted)}
+.flyer h3{font-size:1.7rem;font-weight:800;font-stretch:85%}
+.flyer dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:.95rem}
+.flyer dt{color:var(--muted)}
+.flyer dd{margin:0;font-weight:500}
+.flyer .price{font-family:var(--display);font-weight:800;font-size:1.6rem;font-stretch:85%;border-top:1px dashed var(--line);padding-top:12px}
+.tabs{display:grid;grid-template-columns:repeat(7,1fr);border-top:2px dashed var(--line)}
+.tabs span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--mono);font-size:.68rem;padding:12px 0;text-align:center;border-left:1px dashed var(--line);color:var(--muted);white-space:nowrap}
+.tabs span:last-child{border-right:1px dashed var(--line)}
+.tabs span.gone{visibility:hidden}
+
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:48px;padding-block:40px 64px}.flyer{transform:rotate(1deg)}}
+
+/* sections */
+section{padding-block:72px;border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:40px}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding-top:18px;border-top:3px solid var(--ink);display:grid;gap:10px;min-width:0}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-stretch:70%;font-size:2.8rem;line-height:1;color:var(--sign)}
+.steps h3{font-size:1.35rem;font-weight:700;font-stretch:90%}
+.steps p{color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.split > *{min-width:0}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:40px}}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.95rem;background:var(--card)}
+
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px 26px 22px}
+.sheet .mono{color:var(--muted)}
+.sheet ul{list-style:none;margin:16px 0 0;padding:0;display:grid}
+.sheet li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.sheet li:last-child{border-bottom:0}
+.sheet li::before{content:"";width:16px;height:16px;border:2px solid var(--ink);border-radius:3px;margin-top:5px}
+.sheet li b{font-weight:600}
+.sheet li small{display:block;color:var(--muted);font-size:.9rem}
+
+.buyers{background:var(--ink);color:var(--paper);border-radius:10px;padding:48px clamp(22px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.buyers > *{min-width:0}
+.buyers .lead{color:var(--paper);opacity:.75}
+.buyers .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.buyers .btn:hover{background:var(--sign);border-color:var(--sign);color:var(--sign-ink)}
+.buyers ol{margin:0;padding-left:1.2em;display:grid;gap:10px}
+@media (max-width:760px){.buyers{grid-template-columns:1fr}}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid a{aspect-ratio:4/5;max-width:100%;border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;padding:14px;text-decoration:none;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.15rem;line-height:1.1}
+.grid a .mono{font-family:var(--mono);font-weight:500;font-size:.68rem;opacity:.8}
+.grid a:nth-child(4n+1){background:var(--sign);color:var(--sign-ink)}
+.grid a:nth-child(4n+2){background:var(--note);color:var(--note-ink)}
+.grid a:nth-child(4n+3){background:var(--ink);color:var(--paper)}
+.grid a:nth-child(4n+4){background:var(--card);color:var(--ink);border:1px solid var(--line)}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+/* kontakt */
+form{display:grid;gap:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.92rem;font-weight:500}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:6px;padding:11px 13px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
+textarea{min-height:110px;resize:vertical}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.status{font-size:.9rem;color:var(--muted)}
+.contact-list{display:grid;gap:18px;margin-top:28px}
+.contact-list div{display:grid;gap:4px}
+.copyline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.copyline strong{font-size:1.3rem;font-family:var(--display);font-stretch:85%;user-select:all}
+.copy{font:500 .82rem var(--body);background:none;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+.preview{white-space:pre-wrap;background:var(--card);border:1px dashed var(--line);border-radius:6px;padding:14px;font-size:.9rem;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a href="#pocetak" class="logo">prodaj<span>biznis</span>.rs</a>
+    <ul>
+      <li><a href="#kako">Kako ide</a></li>
+      <li><a href="#sta-treba">Šta nam treba</a></li>
+      <li><a href="#kupci">Za kupce</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="btn sm">Pošalji oglas</a>
+  </div>
+</header>
+
+<main class="wrap" id="pocetak">
+  <div class="hero">
+    <div>
+      <h1>Prodaješ <em>svoj posao?</em> Neko ga baš sad traži.</h1>
+      <p class="lead">Pošalješ nam par informacija o firmi, mi napravimo objavu i pustimo je ljudima koji prate profil jer žele da kupe gotov posao. Kupci se javljaju direktno.</p>
+      <div class="ctas">
+        <a href="#kontakt" class="btn">Pošalji svoj biznis</a>
+        <a href="https://www.instagram.com/prodajbiznis.rs/" class="btn ghost" target="_blank" rel="noopener">Pogledaj oglase na Instagramu</a>
+      </div>
+      <p class="note">Kafić, salon, radnja, online shop, mala proizvodnja. Ako radi i ima kupce, ima smisla da ga oglasimo.</p>
+    </div>
+
+    <figure class="flyer" aria-label="Primer kako izgleda jedan oglas">
+      <div class="head">PRODAJE SE</div>
+      <div class="body">
+        <span class="mono tag">Primer objave</span>
+        <h3>Kafe bar u centru grada</h3>
+        <dl>
+          <dt>Prostor</dt><dd>60 m², u zakupu</dd>
+          <dt>Radi od</dt><dd>2019.</dd>
+          <dt>Ostaje</dt><dd>sva oprema i inventar</dd>
+          <dt>Zašto prodaje</dt><dd>selidba u drugi grad</dd>
+        </dl>
+        <div class="price"><span class="ph">[CENA]</span> €</div>
+      </div>
+      <div class="tabs" aria-hidden="true">
+        <span>@prodajbiznis.rs</span><span class="gone">.</span><span>@prodajbiznis.rs</span><span>@prodajbiznis.rs</span><span class="gone">.</span><span>@prodajbiznis.rs</span><span>@prodajbiznis.rs</span>
+      </div>
+    </figure>
+  </div>
+
+  <section id="kako">
+    <div class="sec-head">
+      <span class="mono" style="color:var(--sign)">Kako ide</span>
+      <h2>Tri koraka od poruke do prvog kupca</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Javiš nam se</h3>
+        <p>Popuniš kratku formu dole ili pišeš u DM. Kažeš šta prodaješ, gde je i koliko tražiš.</p>
+      </li>
+      <li>
+        <h3>Spremimo objavu</h3>
+        <p>Od tvojih podataka i slika napravimo pregledan oglas. Pre objave ti ga pošaljemo da proveriš.</p>
+      </li>
+      <li>
+        <h3>Kupci te kontaktiraju</h3>
+        <p>Oglas ide na profil i u priče. Ko je zainteresovan, javlja se, a dogovor praviš ti.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="sta-treba">
+    <div class="split">
+      <div>
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="mono" style="color:var(--sign)">Šta oglašavamo</span>
+          <h2>Mali i srednji biznisi, svih vrsta</h2>
+          <p class="lead">Kupci na profilu uglavnom traže nešto što već radi, da ne kreću od nule. Zato najbolje prolaze poslovi sa stalnim mušterijama i jasnom pričom.</p>
+        </div>
+        <div class="chips">
+          <span>Kafići i barovi</span><span>Restorani i brza hrana</span><span>Frizerski i kozmetički saloni</span>
+          <span>Prodavnice</span><span>Online shopovi</span><span>Teretane</span><span>Pekare</span>
+          <span>Auto servisi i perionice</span><span>Agencije</span><span>Mala proizvodnja</span><span>Firme (d.o.o.)</span>
+        </div>
+      </div>
+
+      <div class="sheet">
+        <span class="mono">Za dobar oglas pripremi</span>
+        <ul>
+          <li><span><b>Delatnost i grad</b><small>Šta radiš i gde se nalaziš.</small></span></li>
+          <li><span><b>Koliko dugo posao radi</b><small>Godina otvaranja je dovoljna.</small></span></li>
+          <li><span><b>Prostor</b><small>Kvadratura, zakup ili vlasništvo, koliko košta mesečno.</small></span></li>
+          <li><span><b>Šta ide uz posao</b><small>Oprema, roba, naziv, sajt, društvene mreže.</small></span></li>
+          <li><span><b>Promet, okvirno</b><small>Kupci uvek pitaju. Ne mora tačna cifra.</small></span></li>
+          <li><span><b>Zašto prodaješ</b><small>Jedna rečenica. Ljudi više veruju kad znaju razlog.</small></span></li>
+          <li><span><b>Cena i 4 do 6 slika</b><small>Enterijer, izlog, proizvodi. Dnevno svetlo je najbolje.</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="kupci">
+    <div class="buyers">
+      <div>
+        <h2>Tražiš posao da preuzmeš?</h2>
+        <p class="lead" style="margin-top:16px">Novi oglasi izlaze na Instagramu. Zaprati profil i uključi obaveštenja da vidiš ponudu čim se pojavi.</p>
+        <div style="margin-top:24px"><a class="btn" href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener">Zaprati @prodajbiznis.rs</a></div>
+      </div>
+      <ol>
+        <li>Pronađi oglas koji ti odgovara.</li>
+        <li>Pošalji poruku i pitaj šta te zanima.</li>
+        <li>Pre kupovine obavezno pogledaj prostor i papire uživo.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="objave">
+    <div class="sec-head">
+      <span class="mono" style="color:var(--sign)">Sa profila</span>
+      <h2>Skorašnje objave</h2>
+    </div>
+    <div class="grid">
+      <a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener"><span class="mono">[SLIKA 1]</span>Objava sa profila</a>
+      <a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener"><span class="mono">[SLIKA 2]</span>Objava sa profila</a>
+      <a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener"><span class="mono">[SLIKA 3]</span>Objava sa profila</a>
+      <a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener"><span class="mono">[SLIKA 4]</span>Objava sa profila</a>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="split">
+      <div>
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="mono" style="color:var(--sign)">Kontakt</span>
+          <h2>Pošalji nam svoj biznis</h2>
+          <p class="lead">Popuni šta znaš, ostalo dogovaramo u porukama. Klik na dugme otvara WhatsApp sa već sastavljenom porukom.</p>
+        </div>
+        <div class="contact-list">
+          <div>
+            <span class="mono" style="color:var(--muted)">Telefon / WhatsApp</span>
+            <div class="copyline"><strong id="tel">[BROJ TELEFONA]</strong><button type="button" class="copy" data-copy="tel">Kopiraj</button></div>
+          </div>
+          <div>
+            <span class="mono" style="color:var(--muted)">Instagram</span>
+            <div class="copyline"><a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener"><strong>@prodajbiznis.rs</strong></a></div>
+          </div>
+          <div>
+            <span class="mono" style="color:var(--muted)">Cena objave</span>
+            <div><span class="ph">[CENA OBJAVE]</span></div>
+          </div>
+        </div>
+      </div>
+
+      <form id="forma" novalidate>
+        <div class="row">
+          <label for="ime">Ime<input id="ime" name="ime" autocomplete="name" placeholder="Marko"></label>
+          <label for="grad">Grad<input id="grad" name="grad" placeholder="Kragujevac"></label>
+        </div>
+        <div class="row">
+          <label for="delatnost">Šta prodaješ
+            <select id="delatnost" name="delatnost">
+              <option>Kafić / bar</option><option>Restoran / brza hrana</option><option>Salon</option>
+              <option>Prodavnica</option><option>Online shop</option><option>Firma (d.o.o.)</option><option>Nešto drugo</option>
+            </select>
+          </label>
+          <label for="cena">Cena koju tražiš<input id="cena" name="cena" inputmode="numeric" placeholder="npr. 25.000 €"></label>
+        </div>
+        <label for="opis">Par reči o poslu<textarea id="opis" name="opis" placeholder="Koliko radi, kvadratura, šta ide uz posao, zašto prodaješ..."></textarea></label>
+        <div class="form-actions">
+          <button type="submit" class="btn">Pošalji na WhatsApp</button>
+          <button type="button" class="btn ghost" id="kopiraj-poruku">Kopiraj poruku</button>
+          <span class="status" id="status" role="status"></span>
+        </div>
+        <div class="preview" id="preview" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>prodajbiznis.rs · oglasi za prodaju biznisa u Srbiji</span>
+  <a href="https://www.instagram.com/prodajbiznis.rs/" target="_blank" rel="noopener">Instagram</a>
+</footer>
+
+<script>
+(function(){
+  var WA = "381XXXXXXXXX"; // [WHATSAPP BROJ] bez nule i plusa
+  var f = document.getElementById('forma');
+  var prev = document.getElementById('preview');
+  var status = document.getElementById('status');
+  function v(id){return document.getElementById(id).value.trim();}
+  function poruka(){
+    var l = ["Zdravo, želim da oglasim svoj biznis."];
+    if(v('ime')) l.push("Ime: "+v('ime'));
+    l.push("Delatnost: "+v('delatnost'));
+    if(v('grad')) l.push("Grad: "+v('grad'));
+    if(v('cena')) l.push("Cena: "+v('cena'));
+    if(v('opis')) l.push("", v('opis'));
+    return l.join("\n");
+  }
+  function osvezi(){prev.textContent = poruka();}
+  f.addEventListener('input', osvezi); osvezi();
+  function kopiraj(text, el){
+    var done=function(){status.textContent="Kopirano.";};
+    try{navigator.clipboard.writeText(text).then(done,function(){izaberi(el);});}catch(e){izaberi(el);}
+  }
+  function izaberi(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    status.textContent="Tekst je označen, kopiraj ga ručno.";
+  }
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var a=document.createElement('a');
+    a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(poruka());
+    a.target="_blank"; a.rel="noopener"; document.body.appendChild(a); a.click(); a.remove();
+    status.textContent="Ako se WhatsApp nije otvorio, kopiraj poruku i pošalji je ručno.";
+  });
+  document.getElementById('kopiraj-poruku').addEventListener('click', function(){kopiraj(poruka(), prev);});
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var el=document.getElementById(b.dataset.copy);
+      try{navigator.clipboard.writeText(el.textContent).then(function(){b.textContent="Kopirano";},function(){izaberi(el);});}catch(e){izaberi(el);}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
