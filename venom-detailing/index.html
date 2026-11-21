@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venom Detailing — Pranje, detailing i poliranje.</title>
+  <meta name="description" content="Venom Detailing — ručno pranje, dubinsko čišćenje i poliranje automobila. Izaberite svoje vozilo i pogledajte cene svih tretmana.">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://darkoputic.github.io/biznisbiznisbiznis/venom-detailing/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2309090b'/%3E%3Cpath d='M5 7h7l4 13 4-13h7L18 27h-4Z' fill='%23a374ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="garage.css"><script src="app.js" defer></script><script src="workbench.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#usluge">Pređi na usluge</a>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="Venom Detailing početna"><span class="wordmark">VENOM<span class="brand-slash">//</span></span><span class="brand-sub">DETAILING</span></a>
+    <nav aria-label="Glavna navigacija"><a href="#usluge">Usluge</a><a href="#pristup">Naš pristup</a><a href="#cenovnik">Cenovnik</a></nav>
+    <a class="button header-cta" href="#usluge">Naše usluge</a>
+  </header>
+  <main>
+    <section class="garage" aria-labelledby="hero-title">
+      <div class="demo-layout wrap">
+        <div class="garage-intro"><div class="eyebrow">VENOM DETAILING</div><h1 id="hero-title">SVAKI DETALJ.<br><span>SVOJ TRETMAN.</span></h1><p>Pranje, dubinsko čišćenje i poliranje.<br>Isprobaj deo našeg posla — svojim potezom.</p>
+          <div class="work-story" aria-live="polite"><h2 id="work-title">Prljavština je na površini.</h2><p id="work-reason">Pranje uklanja naslage sa karoserije, felni i stakala. Redovna nega počinje čistim površinama.</p></div>
+          <ol class="work-steps" id="work-steps"><li>Višeetapno ručno pranje</li><li>Felne, gume i potkrila</li><li>Enterijer i stakla</li></ol>
+          <p class="work-context" id="work-context">U prikazu isprobavaš ispiranje eksterijera. Kompletan tretman uključuje i negu enterijera.</p>
+        </div>
+        <div class="workbench">
+          <div class="work-tabs" role="tablist" aria-label="Isprobaj deo tretmana"><button id="work-tab-wash" role="tab" aria-selected="true" aria-controls="work-panel" data-work="wash">Pranje</button><button id="work-tab-detail" role="tab" aria-selected="false" aria-controls="work-panel" data-work="detail" tabindex="-1">Detailing</button><button id="work-tab-polish" role="tab" aria-selected="false" aria-controls="work-panel" data-work="polish" tabindex="-1">Poliranje</button></div>
+          <div id="work-panel" role="tabpanel" aria-labelledby="work-tab-wash">
+            <div class="work-tool-line"><span id="work-tool">MLAZ VODE</span><span id="work-gesture">Pritisni i prevuci preko auta</span></div>
+            <div class="work-surface" id="work-surface" data-tool="wash"><canvas id="work-clean" width="840" height="630" aria-hidden="true"></canvas><canvas id="work-dirty" width="840" height="630" role="img" aria-label="Interaktivna ilustracija pranja: prevlačenjem uklanjaš zaprljani sloj. Za automatski prikaz koristi dugme ispod."></canvas><div class="work-cursor" aria-hidden="true"></div><div class="work-loading" id="work-loading">Pripremamo prikaz…</div><div class="work-hint" id="work-hint">Pritisni i prevuci preko površine</div></div>
+            <div class="work-progress"><span>Površina u demonstraciji</span><progress id="work-progress" value="0" max="100" aria-label="Obrađena površina u demonstraciji"></progress><output id="work-percent">0%</output></div>
+            <div class="work-actions"><button class="button primary" id="work-play" type="button" disabled>Pusti demonstraciju</button><button id="work-reset" type="button" disabled>Počni ponovo</button></div>
+            <p class="work-status" id="work-status" role="status">Prevuci mišem ili prstom. Možeš i da pustiš automatski prikaz.</p>
+          </div>
+          <p class="work-disclaimer">Interaktivna ilustracija dela postupka. Generisani vizuali nisu fotografije naših radova; rezultat zavisi od stanja vozila.</p>
+        </div>
+      </div>
+    </section>
+    <div class="service-band" aria-hidden="true"><div>RUČNO PRANJE <b>✳</b> DUBINSKO ČIŠĆENJE <b>✳</b> POLIRANJE <b>✳</b> KERAMIČKA ZAŠTITA <b>✳</b> BRIGA O DETALJIMA</div></div>
+    <section id="usluge" class="section wrap">
+      <div class="section-heading"><div><div class="eyebrow">NAŠE USLUGE</div><h2>NEGA AUTOMOBILA.<br><span>DO POSLEDNJEG DETALJA.</span></h2></div><p>Od redovnog pranja do dubinskog čišćenja i zaštite laka.<br>Pogledaj šta obuhvata svaki tretman.</p></div>
+      <div class="services">
+        <article class="service-card"><div class="card-top"><span class="service-icon" aria-hidden="true">✳</span></div><div class="eyebrow">SVEŽINA KOJA SE VIDI</div><h3>Pranje</h3><p>Pažljivo ručno pranje eksterijera i osveženje enterijera. Za onaj dobar osećaj pri svakoj vožnji.</p><ul><li>Višeetapno ručno pranje</li><li>Felne, gume i potkrila</li><li>Usisavanje i nega enterijera</li></ul><div class="card-footer"><a href="#cenovnik" data-service="wash" aria-label="Pogledaj cenovnik pranja">Pogledaj cenu tretmana</a></div></article>
+        <article class="service-card featured"><div class="card-top"><span class="service-icon diamond" aria-hidden="true">◇</span></div><div class="eyebrow">ČISTOĆA ISPOD POVRŠINE</div><h3>Detailing</h3><p>Temeljno čišćenje svakog kutka. Od sedišta i tapacirunga do detalja koje svakodnevno ne primećujete.</p><ul><li>Dubinsko pranje enterijera</li><li>Čišćenje ventilacije i dezinfekcija klime</li><li>Kompletno pranje eksterijera</li></ul><div class="card-footer"><a href="#cenovnik" data-service="detail" aria-label="Pogledaj cenovnik detailinga">Pogledaj cenu tretmana</a></div></article>
+        <article class="service-card"><div class="card-top"><span class="service-icon" aria-hidden="true">✧</span></div><div class="eyebrow">SJAJ KOJI PRIVLAČI POGLEDE</div><h3>Poliranje</h3><p>Dubina boje, jasna refleksija i zaštićen lak. Pažljivo od dekontaminacije do završnog sloja zaštite.</p><ul><li>Hemijska i fizička dekontaminacija</li><li>Mašinsko poliranje u više prelaza</li><li>Keramička zaštita do 6 meseci</li></ul><div class="card-footer"><a href="#cenovnik" data-service="polish" aria-label="Pogledaj cenovnik poliranja">Pogledaj cenu tretmana</a></div></article>
+      </div>
+    </section>
+    <section id="pristup" class="approach"><div class="wrap approach-inner"><div><div class="eyebrow">NAŠ PRISTUP</div><h2>DOBAR REZULTAT.<br><span>NIJEDNA PREČICA.</span></h2></div><div class="approach-copy"><p>Automobil se ne neguje samo tamo gde se vidi. Naša pažnja ide dalje — do šavova sedišta, ventilacionih otvora, felni i svakog sloja laka.</p><div class="approach-points"><div><span>01</span><strong>Pažljivo ručno pranje</strong></div><div><span>02</span><strong>Temeljna priprema</strong></div><div><span>03</span><strong>Negovan završni detalj</strong></div></div></div></div></section>
+    <section id="cenovnik" class="section wrap pricing-section"><div class="section-heading"><div><div class="eyebrow">CENOVNIK</div><h2>IZABERI TRETMAN.<br><span>PROVERI CENU.</span></h2></div><p>Izaberi tip vozila i uporedi tretmane.<br>Sve cene su izražene u dinarima.</p></div>
+      <div class="configurator"><div class="vehicle-picker"><label for="vehicle">01 <span>KOJI AUTO VOZIŠ?</span></label><select id="vehicle"><option value="hatch">Hečbek</option><option value="sedan">Sedan</option><option value="wagon">Karavan / van</option><option value="crossover">Krosover / pik-ap</option><option value="midsuv">Srednji SUV</option><option value="largesuv">Veliki SUV</option></select><div class="picker-caption">Precizna nega.<br><span>Za svaku klasu.</span></div></div><div class="treatment-picker"><div class="step-label">02 <span>IZABERI TRETMAN</span></div><div class="treatment-tabs" role="tablist" aria-label="Vrsta tretmana"><button role="tab" aria-selected="true" aria-controls="treatment-panel" id="tab-wash" data-tab="wash">Pranje</button><button role="tab" aria-selected="false" aria-controls="treatment-panel" id="tab-detail" data-tab="detail" tabindex="-1">Detailing</button><button role="tab" aria-selected="false" aria-controls="treatment-panel" id="tab-polish" data-tab="polish" tabindex="-1">Poliranje</button></div><div id="treatment-panel" role="tabpanel" aria-labelledby="tab-wash"><div class="price-row"><h3 id="treatment-title">Pranje</h3><div id="price" aria-live="polite"><strong>1.500</strong> <span>RSD</span></div></div><p id="treatment-description"></p><ul id="treatment-includes" class="treatment-includes"></ul><p id="price-note" class="price-note"></p></div></div></div>
+      <details class="full-pricing"><summary>Prikaži kompletan cenovnik <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Pregled cena po tipu vozila (RSD)</caption><thead><tr><th scope="col">Tip vozila</th><th scope="col">Pranje</th><th scope="col">Detailing</th><th scope="col">Poliranje</th></tr></thead><tbody><tr><th scope="row">Hečbek</th><td>1.500</td><td>12.000</td><td>24.000–40.000*</td></tr><tr><th scope="row">Sedan</th><td>1.700</td><td>14.000</td><td>29.000–47.000*</td></tr><tr><th scope="row">Karavan / van</th><td>1.900</td><td>16.000</td><td>35.000–53.000*</td></tr><tr><th scope="row">Krosover / pik-ap</th><td>2.200</td><td>Po dogovoru¹</td><td>Po tipu vozila¹</td></tr><tr><th scope="row">Srednji SUV</th><td>2.500</td><td>18.000</td><td>40.000–59.000*</td></tr><tr><th scope="row">Veliki SUV</th><td>2.800</td><td>18.000</td><td>40.000–59.000*</td></tr></tbody></table></div><p>* Viša cena uključuje šmirglanje laka P1500/P2000/P3000 i poliranje u dva prelaza.<br>¹ Za krosover je poliranje 35.000–53.000 RSD. Detailing za krosover / pik-ap i poliranje za pik-ap nisu posebno navedeni u cenovniku; cenu je potrebno potvrditi.</p></details>
+    </section>
+    <section class="closing wrap"><div class="eyebrow">VENOM DETAILING</div><h2>DETALJI PRAVE<br><span>RAZLIKU.</span></h2><a class="button primary" href="#cenovnik">Izaberi nivo nege <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="wrap"><a class="brand" href="#"><span class="wordmark">VENOM<span class="brand-slash">//</span></span><span class="brand-sub">DETAILING</span></a><p>Pažnja koju vaš automobil zaslužuje.</p><span>© <span id="year">2026</span> Venom Detailing</span><a class="to-top" href="#" aria-label="Nazad na vrh">↑</a></footer>
+</body></html>
